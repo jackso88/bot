@@ -1,4 +1,1 @@
 pytelegrambotapi
-Flask
-gunicorn
-gevent
