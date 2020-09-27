@@ -18,12 +18,13 @@ def get_text_messages(message):
 		r = requests.get(url)
 		html = r.content
 		soup = bs(html, "html.parser")
+		text = 'Defenition of ' + str(message.text).capitalize() + ': '
 		for meta in soup.find_all('meta'):
-			prop = meta.get('name')
-			if prop == 'description':
-				text = str(meta.get('content'))
+			prop = meta.get('property')
+			if prop == 'og:description':
+				text = text + str(meta.get('content')) + ". \n\n"
 		for data in soup.find_all('span', class_= 't has-aq'):
-			text = text + ' ' + str(data)
+			text = text + ' ' + str(data) + "\n\n"
 		bot.send_message(message.from_user.id, re.sub(r'<.*?>','',text).replace('</*>','') + ' ' + url)
 
 		
