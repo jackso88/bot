@@ -1,4 +1,3 @@
 pytelegrambotapi
-re
 bs4
 requests
