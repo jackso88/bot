@@ -22,9 +22,10 @@ def get_text_messages(message):
 		for meta in soup.find_all('meta'):
 			prop = meta.get('property')
 			if prop == 'og:description':
-				text = text + str(meta.get('content')) + ". \n\n"
+				text = text + str(meta.get('content'))
+				text = text.replace('See the full definition', '') + "\n\nExample of using in sentence:\n\n"
 		for data in soup.find_all('span', class_= 't has-aq'):
-			text = text + ' ' + str(data) + "\n\n"
+			text = text + ' ' + str(data) + '\n\n'
 		bot.send_message(message.from_user.id, re.sub(r'<.*?>','',text).replace('</*>','') + ' ' + url)
 
 		
