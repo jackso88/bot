@@ -31,7 +31,8 @@ def get_text_messages(message):
                 text += "\n\nExample of using in sentence:\n\n"
         for data in soup.find_all('span', class_='t has-aq'):
             text = text + ' ' + str(data) + '\n\n'
-        mssg = message.from_user.id, re.sub(r'<.*?>', '', text).replace('</*>', '') + ' ' + url
+        mssg = message.from_user.id, re.sub(r'<.*?>', '', text)
+        mssg = mssg.replace('</*>', '') + ' ' + url
         bot.send_message(mssg)
 
 
