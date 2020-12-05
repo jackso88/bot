@@ -4,7 +4,7 @@ import re
 from bs4 import BeautifulSoup as bs
 
 
-bot = telebot.TeleBot('1327213027:AAGcwZpzOAqbXZCpfEnaoBwM5Ti7lEsQ86E')
+bot = telebot.TeleBot(':pfEnaoBwM5Ti7lEsQ86E')
 
 
 @bot.message_handler(content_types=['text'])
